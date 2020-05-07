@@ -33,4 +33,8 @@ class Api::V1::MoviesController < ApplicationController
     params.permit(:title, :year, :rated, :released,
                   :runtime, :genre, :actors, :plot, :poster, :imdbId, :boxOffice, :director)
   end
+
+  def movie
+    @movie ||= Movie.find(params[:id])
+  end
 end
