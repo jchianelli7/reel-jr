@@ -2,3 +2,8 @@ themoviedb.org
 https://www.themoviedb.org/documentation/api/discover?language=en-US
 
 http://www.omdbapi.com/
+
+Collect popular movies with:
+https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=0ba073741ce62a3c7fb1fc3f627fb64a
+
+Add to array and get OMDB details of each
