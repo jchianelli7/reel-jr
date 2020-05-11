@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class Movie extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { movie: { actors: "" } };
+        this.state = {movie: {actors: ""}};
 
         this.addHtmlEntities = this.addHtmlEntities.bind(this);
     }
@@ -12,7 +12,7 @@ class Movie extends React.Component {
     componentDidMount() {
         const {
             match: {
-                params: { id }
+                params: {id}
             }
         } = this.props;
 
@@ -25,7 +25,10 @@ class Movie extends React.Component {
                 }
                 throw new Error("Network response was not ok.");
             })
-            .then(response => this.setState({ movie: response }))
+            .then(response => {
+                console.log(response)
+                this.setState({movie: response})
+            })
             .catch(() => this.props.history.push("/movies"));
     }
 
@@ -36,7 +39,7 @@ class Movie extends React.Component {
     }
 
     render() {
-        const { movie } = this.state;
+        const {movie} = this.state;
         let actorsList = "No actors available";
 
         if (movie.actors.length > 0) {
@@ -58,7 +61,7 @@ class Movie extends React.Component {
                         alt={`${movie.title} image`}
                         className="img-fluid position-absolute"
                     />
-                    <div className="overlay bg-dark position-absolute" />
+                    <div className="overlay bg-dark position-absolute"/>
                     <h1 className="display-4 position-relative text-white">
                         {movie.title}
                     </h1>

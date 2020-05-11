@@ -18,7 +18,10 @@ class Movies extends React.Component {
                 }
                 throw new Error("Network response was not ok.");
             })
-            .then(response => this.setState({ movies: response }))
+            .then(response => {
+                console.log(response)
+                this.setState({ movies: response })
+            })
             .catch(() => this.props.history.push("/"));
     }
 
@@ -64,7 +67,7 @@ class Movies extends React.Component {
                 <div className="py-5">
                     <main className="container">
                         <div className="text-right mb-3">
-                            <Link to="/recipe" className="btn custom-button">
+                            <Link to="/movie" className="btn custom-button">
                                 Create New Movie
                             </Link>
                         </div>
